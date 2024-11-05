@@ -1,0 +1,316 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.App-logo:hover {
+  transform: scale(1.1) rotate(360deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 15s linear;
+  }
+}
+
+.App-header {
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  min-height: 50vh;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  /* animation: fadeIn 1.5s ease-in-out; */
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #182848;
+  animation: slideDownFadeIn 1.5s ease-out;
+}
+
+.App-title{
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.App-link {
+  color: #61dafb;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.App-link:hover {
+  color: #21a1f1;
+}
+
+button {
+  background-color: #61dafb;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #21a1f1;
+  transform: scale(1.05);
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideDownFadeIn {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* General styling for each list item */
+.list-group-item {
+  border: none;
+  background-color: #f8f9fa;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title and description styling */
+.todo-title {
+  font-weight: bold;
+  color: #333;
+}
+
+.todo-description {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Date and priority styling */
+.todo-date,
+.todo-priority {
+  font-size: 0.8rem;
+}
+
+.todo-date {
+  margin-right: 5px;
+}
+
+/* Priority color codes */
+.priority-low {
+  color: green;
+  font-weight: bold;
+}
+
+.priority-medium {
+  color: orange;
+  font-weight: bold;
+}
+
+.priority-high {
+  color: red;
+  font-weight: bold;
+}
+
+/* Button styling */
+.todo-item-actions .btn {
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
+
+.todo-item-actions .btn-outline-secondary {
+  color: #555;
+  border-color: #ddd;
+}
+
+.todo-item-actions .btn-outline-secondary:hover {
+  background-color: #f0f0f0;
+}
+
+.todo-item-actions .btn-outline-danger {
+  color: #d9534f;
+  border-color: #d9534f;
+}
+
+.todo-item-actions .btn-outline-danger:hover {
+  background-color: #f8d7da;
+}
+
+
+
+/* CSS styling for Modal.js, the form. */
+
+.modal{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  background-color: #4b6cb7;
+  color: white;
+  border-bottom: none;
+  text-align: center;
+}
+
+.modal-header .modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+/* Form elements inside the modal */
+.modal-body .form-group {
+  margin-bottom: 15px;
+}
+
+.modal-body label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.modal-body input,
+.modal-body select,
+.modal-body textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Checkbox styling */
+.modal-body .form-check-label {
+  font-size: 1rem;
+}
+
+.modal-body .form-check-input {
+  margin-right: 5px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-footer .btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.modal-footer .btn-primary {
+  background-color: #4b6cb7;
+  color: white;
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: #3d57a0;
+}
+
+.modal-footer .btn-secondary {
+  background-color: #ccc;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-form label{
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.modal-form input, .modal-form select, .modal-form textarea{
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.modal-footer .btn{
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.modal-footer .btn-primary {
+  background-color: #4b6cb7;
+  color: white;
+}
+
+.modal-footer .btn-secondary {
+  background-color: #ccc;
+  padding-bottom: 20px;
+}
+
+
+
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+  .App-header {
+    font-size: calc(8px + 2vmin); /* Smaller font size */
+    padding: 15px;
+    max-height: 40vh;
+  }
+
+  .App-logo {
+    height: 30vmin; 
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
+}

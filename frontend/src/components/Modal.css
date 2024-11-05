@@ -1,0 +1,101 @@
+/* Modal overlay background */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent dark overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  /* Modal container */
+  .modal-container {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease-out; /* Optional animation */
+  }
+  
+  /* Title */
+  .modal-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Form layout */
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .modal-form label {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .modal-form input,
+  .modal-form select,
+  .modal-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  /* Button container */
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .modal-actions .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-actions .btn-primary {
+    background-color: #4b6cb7;
+    color: white;
+  }
+  
+  .modal-actions .btn-primary:hover {
+    background-color: #3d57a0;
+  }
+  
+  .modal-actions .btn-secondary {
+    background-color: #ccc;
+    color: black;
+  }
+  
+  .modal-actions .btn-secondary:hover {
+    background-color: #aaa;
+  }
+  
+  /* Animation for modal */
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
