@@ -35,12 +35,30 @@ class App extends Component{
       },
       descriptionVisible: {},
       error: "",
+      headerHidden: false,
     };
+    this.lastScrollY = window.scrollY;
   }
 
   componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
     this.refreshList();
   }
+
+  componentWillUnmount(){
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    if(currentScrollY > this.lastScrollY){
+      this.setState({headerHidden:true});
+    }
+    else{
+      this.setState({headerHidden:false});
+    }
+    this.lastScrollY = currentScrollY;
+  };
 
   refreshList = () => {
     axios.get("/api/todos/").then((res) => this.setState({ todoList: res.data})).catch((err) => console.log(err));
@@ -151,13 +169,14 @@ class App extends Component{
 
 
   render() {
+    const {headerHidden} = this.state;
     return (
       <div className='App'>
         {/* New Header */}
-        <header className='App-header'>
-          <h1 className='App-title'>TASK MANAGER</h1>
+        <header className={`App-header ${headerHidden ? "hidden" : ""}`}>
+          <h1 className='App-title'>TASK MANAGER   <i className="fa-solid fa-list-check" style={{color:'violet'}}></i></h1>
         </header>
-      <main className="container">
+      <main className="container" style={{paddingBottom:'60px'}}>
         <h2 className="text-white text-uppercase text-center my-4">
           Todo List
         </h2>
@@ -190,9 +209,36 @@ class App extends Component{
             </div>
           )}
       </main>
-      <footer>
-        <div className='row'></div>
+      <footer className="App-footer">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-4 col-sm-12 text-center mb-3">
+              <h5>About Task Manager</h5>
+              <p>Organize your tasks efficiently and never miss a deadline!</p>
+            </div>
+            <div className="col-md-4 col-sm-12 text-center mb-3">
+              <h5>Quick Links</h5>
+              <ul className="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#support">Support</a></li>
+              </ul>
+            </div>
+            <div className="col-md-4 col-sm-12 text-center mb-3">
+              <h5>Follow Us</h5>
+              <div className="social-icons">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+          <div className="text-center mt-4">
+            <p>&copy; {new Date().getFullYear()} Task Manager. All Rights Reserved.</p>
+          </div>
+        </div>
       </footer>
+
       </div>
     );
   }
